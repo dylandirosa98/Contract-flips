@@ -261,41 +261,39 @@
       display: block;
     }
 
-    /* Placeholder testimonial cards (until real images) */
-    .testimonial-placeholder {
-      aspect-ratio: 9 / 16;
-      background: linear-gradient(135deg, rgba(20, 15, 35, 0.8), rgba(30, 20, 50, 0.8));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 24px;
-    }
-
-    .testimonial-placeholder .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--purple-main), var(--purple-mid));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-    }
-
-    .testimonial-placeholder .amount {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--purple-glow);
-    }
-
-    .testimonial-placeholder .label {
-      font-size: 13px;
-      color: var(--text-muted);
+    .video-caption {
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-secondary);
       text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .photo-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card);
+      transition: all 0.3s ease;
+    }
+
+    .photo-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     .testimonials-cta {
@@ -348,12 +346,8 @@
         gap: 10px;
       }
 
-      .testimonial-placeholder {
-        padding: 16px;
-      }
-
-      .testimonial-placeholder .amount {
-        font-size: 22px;
+      .photos-grid {
+        gap: 10px;
       }
 
       .cta-btn {
@@ -425,17 +419,29 @@
           <div style="position:relative;aspect-ratio:16/9;">
             <iframe src="https://www.youtube.com/embed/jm6mhOZHqF0?si=F5K4o3W2BZvQOxCX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
           </div>
+          <div class="video-caption">How Two 18 Year Olds Closed A $10k Real Estate Deal</div>
         </div>
         <div class="testimonial-card">
           <div style="position:relative;aspect-ratio:16/9;">
             <iframe src="https://www.youtube.com/embed/ezD0fLGiTLA?si=WNdUF-Xd21u21IXp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
           </div>
+          <div class="video-caption">From A Sales Job To $20k/Month At 19 Wholesaling Real Estate</div>
         </div>
         <div class="testimonial-card">
           <div style="position:relative;aspect-ratio:16/9;">
             <iframe src="https://www.youtube.com/embed/ILDPqmyoEb0?si=5BnBEqwjF6CQd1c-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
           </div>
+          <div class="video-caption">College Dropout To $40,000/Month In Under 6 Months</div>
         </div>
+      </div>
+
+      <div class="photos-grid">
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e7373300f0647b993e1fd.png" alt="Student result"></div>
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e737388e1e60bad9ef43b.png" alt="Student result"></div>
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e73735e13ec2e1e166c87.png" alt="Student result"></div>
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e737359e47bb8575ce430.png" alt="Student result"></div>
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e7373300f06345093e1fe.png" alt="Student result"></div>
+        <div class="photo-card"><img src="https://assets.cdn.filesafe.space/EUvTWl9pyrpC0cEmKklS/media/691e7373827368c241d57d1c.png" alt="Student result"></div>
       </div>
 
       <div class="testimonials-cta">
