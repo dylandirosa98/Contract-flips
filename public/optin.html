@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/webp" href="/favicon.webp">
   <title>Get The Blueprint - 10+ Deals a Month</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -460,27 +461,113 @@
       background: rgba(255,255,255,0.12);
     }
 
-    .modal-iframe-wrap {
+    .modal-form-wrap {
       width: 100%;
       border-radius: 14px;
       overflow: hidden;
-      background: #fff;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
       box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 120px -40px rgba(109,40,217,0.25);
+      padding: 32px 28px;
     }
 
-    .modal-iframe-wrap iframe {
-      width: 100%;
-      border: none;
+    .modal-form-wrap h3 {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.75) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
       display: block;
-      /* Default desktop height — mobile override below */
-      height: 520px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
     }
 
-    @media (max-height: 700px), (max-width: 480px) {
-      .modal-iframe-wrap iframe {
-        height: calc(100dvh - 100px);
-        max-height: 520px;
-      }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input::placeholder { color: var(--text-muted); }
+
+    .form-group input:focus {
+      border-color: var(--purple-mid);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      width: auto;
+      margin-top: 3px;
+      accent-color: var(--purple-mid);
+      cursor: pointer;
+    }
+
+    .form-checkbox label {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .required-star { color: #f87171; }
+
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--purple-main), var(--purple-mid));
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 8px;
+    }
+
+    .form-submit:hover {
+      box-shadow: 0 12px 40px rgba(109, 40, 217, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-error {
+      color: #f87171;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 12px;
+      display: none;
     }
 
     /* ── Footer ── */
@@ -674,21 +761,42 @@
 
   </main>
 
-  <!-- Modal with GHL form iframe -->
+  <!-- Modal with custom form -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal">
       <button class="modal-close" id="modalClose">&times;</button>
-      <div class="modal-iframe-wrap">
-        <iframe
-          id="crmFormIframe"
-          src="https://api.acquiredcrm.com/widget/form/bhq4CANZ9C3KWpiR2lft"
-          title="Funnel Form CF - Hunter"
-        ></iframe>
+      <div class="modal-form-wrap">
+        <h3>The Resources You Need To Close Your First Deal</h3>
+        <form id="leadForm">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="first_name" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="last_name" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span class="required-star">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="required-star">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="smsConsent" name="terms_and_conditions" required>
+            <label for="smsConsent">I Consent to Receive SMS Notifications, Alerts &amp; Occasional Marketing Communication from HVU Consulting LLC. Message frequency varies. Message &amp; data rates may apply.</label>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">CONTINUE</button>
+          <p class="form-error" id="formError"></p>
+        </form>
       </div>
     </div>
   </div>
 
   <!-- Libraries -->
+  <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/split-type"></script>
 
@@ -825,6 +933,67 @@
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
+    });
+
+    // ── Form submission to GHL via proxy ──
+    const FORM_ID = 'bhq4CANZ9C3KWpiR2lft';
+    const LOCATION_ID = 'EUvTWl9pyrpC0cEmKklS';
+    const RECAPTCHA_KEY = '6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX';
+    const REDIRECT_TO = '/theinnercircle';
+
+    const leadForm = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formError = document.getElementById('formError');
+
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'SUBMITTING...';
+
+      const phone = document.getElementById('phone').value.replace(/[\s\-\(\)]/g, '');
+      const formattedPhone = phone.startsWith('+') ? phone : '+1' + phone;
+
+      try {
+        const captchaToken = await grecaptcha.enterprise.execute(RECAPTCHA_KEY, { action: 'submit' });
+
+        const formData = {
+          first_name: document.getElementById('firstName').value.trim(),
+          last_name: document.getElementById('lastName').value.trim(),
+          phone: formattedPhone,
+          email: document.getElementById('email').value.trim(),
+          terms_and_conditions: document.getElementById('smsConsent').checked,
+        };
+
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            formId: FORM_ID,
+            locationId: LOCATION_ID,
+            formData,
+            captchaV3: captchaToken,
+          }),
+        });
+
+        const text = await res.text();
+
+        if (res.ok) {
+          window.location.href = REDIRECT_TO;
+        } else {
+          console.error('GHL submit error:', res.status, text);
+          formError.textContent = 'Submission failed. Please try again.';
+          formError.style.display = 'block';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'CONTINUE';
+        }
+      } catch (err) {
+        console.error('Submit error:', err);
+        formError.textContent = 'Something went wrong. Please try again.';
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'CONTINUE';
+      }
     });
 
   </script>
