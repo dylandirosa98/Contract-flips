@@ -463,23 +463,25 @@
 
     .modal-iframe-wrap {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 0;
       overflow: hidden;
-      background: #fff;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 120px -40px rgba(109,40,217,0.25);
+      background: transparent;
+      box-shadow: none;
     }
 
     .modal-iframe-wrap iframe {
       width: 100%;
       border: none;
       display: block;
-      height: 520px;
+      height: 620px;
+      overflow: hidden;
+      background: #09090F;
     }
 
     @media (max-height: 700px), (max-width: 480px) {
       .modal-iframe-wrap iframe {
         height: calc(100dvh - 100px);
-        max-height: 520px;
+        max-height: 620px;
       }
     }
 
@@ -683,6 +685,7 @@
           id="crmFormIframe"
           src="https://api.acquiredcrm.com/widget/form/bhq4CANZ9C3KWpiR2lft"
           title="Funnel Form CF - Hunter"
+          scrolling="no"
         ></iframe>
       </div>
     </div>
