@@ -5,6 +5,10 @@ const app = express();
 const PORT = 3002;
 
 // Routes before static
+app.get('/', (req, res) => {
+  res.redirect('/innercircle');
+});
+
 app.get('/tools/confirm', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'confirm.html'));
 });
