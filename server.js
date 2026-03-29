@@ -49,6 +49,10 @@ app.get('/thank-you', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'thank-you.html'));
 });
 
+app.get('/thank-you1', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'thank-you1.html'));
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
