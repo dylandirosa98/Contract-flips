@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const PORT = 3002;
+const PORT = 3000;
 
 // Routes before static
 app.get('/', (req, res) => {
@@ -51,6 +51,18 @@ app.get('/thank-you', (req, res) => {
 
 app.get('/thank-you1', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'thank-you1.html'));
+});
+
+app.get('/webinar', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'webinar.html'));
+});
+
+app.get('/event', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'webinar.html'));
+});
+
+app.get('/confirmation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'confirmation.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
